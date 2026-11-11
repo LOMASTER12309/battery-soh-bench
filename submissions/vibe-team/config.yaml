@@ -1,0 +1,13 @@
+# Все варианты и защитные границы задаются до оценки выбранной модели на val.
+seed: 42
+data_dir: ../../data/fragments
+feature_sets: [baseline, shape, compact, hybrid]
+alphas: [0.0001, 0.0003, 0.001, 0.003, 0.01, 0.03, 0.1]
+l1_ratios: [0.05, 0.5, 0.95]
+weighting: [none, cell_sqrt]
+cv_splits: 5
+max_iter: 20000
+tol: 0.00001
+# Это защитная гипотеза модели; диапазон не является физическим законом SOH.
+prediction_bounds: [0.4, 1.1]
+final_fit: train+val
